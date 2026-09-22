@@ -153,7 +153,7 @@ and I solve problems for fun when neither of those is cooperating.
 <table>
 <tr>
 <td width="50%">
-  <a href="https://github.com/gargibhardwaj24/dossier">
+  <a href="https://github.com/porwalakshat124/AccessPOS">
     <picture>
       <source media="(prefers-color-scheme: dark)"  srcset="assets/card-dossier-dark.svg">
       <source media="(prefers-color-scheme: light)" srcset="assets/card-dossier-light.svg">
