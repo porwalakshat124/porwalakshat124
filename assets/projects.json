@@ -2,8 +2,8 @@
   "_comment": "Featured repos, in README order. Star/fork/language come live from the API on every run; the description here overrides the repo's GitHub description (all four of these currently have none set). Setting them on GitHub too is worth doing - it helps anyone browsing your repo list.",
   "projects": [
     {
-      "repo": "dossier",
-      "description": "An immersive design-engineering portfolio. Fluid scroll inertia, geometric morphing, and typography that bends toward your cursor."
+      "repo": "AccessPOS",
+      "description": "An AI-powered voice, text and visual commerce assistant that makes ordering and payments accessible for small Indian merchants and their customers.AccessPOS is an AI-powered voice, text and visual commerce assistant that makes ordering and payments accessible for small Indian merchants and their customers.."
     },
     {
       "repo": "Sage",
