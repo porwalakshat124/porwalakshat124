@@ -155,38 +155,38 @@ and I solve problems for fun when neither of those is cooperating.
 <td width="50%">
   <a href="https://github.com/porwalakshat124/AccessPOS">
     <picture>
-      <source media="(prefers-color-scheme: dark)"  srcset="assets/card-dossier-dark.svg">
-      <source media="(prefers-color-scheme: light)" srcset="assets/card-dossier-light.svg">
-      <img src="assets/card-dossier-dark.svg" width="420" alt="dossier">
+      <source media="(prefers-color-scheme: dark)"  srcset="assets/card-AccessPOS-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="assets/card-AccessPOS-light.svg">
+      <img src="assets/card-V-dark.svg" width="420" alt="AccessPOS">
     </picture>
   </a>
 </td>
 <td width="50%">
-  <a href="https://github.com/gargibhardwaj24/Sage">
+  <a href="https://github.com/porwalakshat124/DeployPilot">
     <picture>
-      <source media="(prefers-color-scheme: dark)"  srcset="assets/card-Sage-dark.svg">
-      <source media="(prefers-color-scheme: light)" srcset="assets/card-Sage-light.svg">
-      <img src="assets/card-Sage-dark.svg" width="420" alt="Sage">
+      <source media="(prefers-color-scheme: dark)"  srcset="assets/card-DeployPilot-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="assets/card-DeployPilot-light.svg">
+      <img src="assets/card-DeployPilot-dark.svg" width="420" alt="DeployPilot">
     </picture>
   </a>
 </td>
 </tr>
 <tr>
 <td width="50%">
-  <a href="https://github.com/gargibhardwaj24/Socrates">
+  <a href="https://github.com/porwalakshat124/porwalakshat124">
     <picture>
-      <source media="(prefers-color-scheme: dark)"  srcset="assets/card-Socrates-dark.svg">
-      <source media="(prefers-color-scheme: light)" srcset="assets/card-Socrates-light.svg">
-      <img src="assets/card-Socrates-dark.svg" width="420" alt="Socrates">
+      <source media="(prefers-color-scheme: dark)"  srcset="assets/card-MyPortfolio-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="assets/card-MyPortfolio-light.svg">
+      <img src="assets/card-MyPortfolio-dark.svg" width="420" alt="MyPortfolio">
     </picture>
   </a>
 </td>
 <td width="50%">
-  <a href="https://github.com/gargibhardwaj24/humanOS">
+  <a href="https://github.com/porwalakshat124/studysync">
     <picture>
-      <source media="(prefers-color-scheme: dark)"  srcset="assets/card-humanOS-dark.svg">
-      <source media="(prefers-color-scheme: light)" srcset="assets/card-humanOS-light.svg">
-      <img src="assets/card-humanOS-dark.svg" width="420" alt="humanOS">
+      <source media="(prefers-color-scheme: dark)"  srcset="assets/card-StudySync-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="assets/card-StudySync-light.svg">
+      <img src="assets/card-StudySync-dark.svg" width="420" alt="StudySync">
     </picture>
   </a>
 </td>
@@ -197,10 +197,10 @@ and I solve problems for fun when neither of those is cooperating.
 
 | project | live | stack |
 |---|---|---|
-| **[dossier](https://github.com/gargibhardwaj24/dossier)** | [dossier-iota-one.vercel.app](https://dossier-iota-one.vercel.app) | `JavaScript` `GSAP` `Lenis` |
-| **[Sage](https://github.com/gargibhardwaj24/Sage)** | [sage-calendar.vercel.app](https://sage-calendar.vercel.app) | `JavaScript` |
-| **[Socrates](https://github.com/gargibhardwaj24/Socrates)** | [socrates-one-coral.vercel.app](https://socrates-one-coral.vercel.app) | `Next.js` `Prisma` `TypeScript` |
-| **[humanOS](https://github.com/gargibhardwaj24/humanOS)** | [human-os-two.vercel.app](https://human-os-two.vercel.app) | `JavaScript` `Gemini` |
+| **[AccessPOS](https://github.com/porwalakshat124/dossier)** | [AccessPOS-one.vercel.app](https://accesspos-one.vercel.app) | `Next.js` `PostgreSQL` `React`|
+| **[DeployPilot](https://github.com/porwalakshat124/deploypilot)** | [deploypilot-web.vercel.app](https://deploypilot-web.vercel.app/) | `CSS` `NextJS` `BullMQ` |
+| **[MyPortfolio](https://github.com/porwalakshat124/MrInfinityboss.github.io)** | [akshat-portfolio-psi.vercel.app](https://akshat-portfolio-psi.vercel.app) | `HTML` `CSS` `JavaScript` |
+| **[StudySync](https://github.com/porwalakshat124/studysync)** | [studysync-eight-red.vercel.app](https://studysync-eight-red.vercel.app) | `JavaScript` `React` `SQL` |
 
 </sub>
 

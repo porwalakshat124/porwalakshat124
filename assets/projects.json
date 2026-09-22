@@ -3,19 +3,19 @@
   "projects": [
     {
       "repo": "AccessPOS",
-      "description": "An AI-powered voice, text and visual commerce assistant that makes ordering and payments accessible for small Indian merchants and their customers.AccessPOS is an AI-powered voice, text and visual commerce assistant that makes ordering and payments accessible for small Indian merchants and their customers.."
+      "description": "An AI-powered voice, text and visual commerce assistant that makes ordering and payments accessible for small Indian merchants and their customers."
     },
     {
-      "repo": "Sage",
-      "description": "A local-first calendar that shapes your week around six productivity frameworks, with an assistant that plans according to the method you pick."
+      "repo": "DeployPilot",
+      "description": "An AI-assisted deployment pipeline for developers. Push to GitHub, watch every build stage stream live, and get an evidence-based diagnosis the moment something breaks."
     },
     {
-      "repo": "Socrates",
-      "description": "Learn by teaching. Explain a concept to the AI, get caught on the parts you only half-understand, and prove you actually know it."
+      "repo": "MyPortfolio",
+      "description": "An immersive design-engineering portfolio. Fluid scroll inertia, geometric morphing, and typography that bends toward your cursor."
     },
     {
-      "repo": "humanOS",
-      "description": "A gamified operating system for your life. Goals as interactive orbits, habit and mood tracking, and Gemini breaking objectives into daily tasks."
+      "repo": "StudySync",
+      "description": "A full-stack academic collaboration platform for study sessions. Real-time discovery, hosting and waitlists, wrapped in an editorial navy-and-teal design system that stays calm under pressure."
     }
   ]
 }
