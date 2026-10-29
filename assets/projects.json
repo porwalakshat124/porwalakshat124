@@ -1,10 +1,6 @@
 {
-  "_comment": "Featured repos, in README order. Star/fork/language come live from the API on every run; the description here overrides the repo's GitHub description (all four of these currently have none set). Setting them on GitHub too is worth doing - it helps anyone browsing your repo list.",
+  "_comment": "Automatically refreshed public repository cards. Nexus and Luna cards are maintained separately: their application sources are private/local, so the public-repository API used by cards.py cannot refresh them.",
   "projects": [
-    {
-      "repo": "AccessPOS",
-      "description": "An AI-powered voice, text and visual commerce assistant that makes ordering and payments accessible for small Indian merchants and their customers."
-    },
     {
       "repo": "DeployPilot",
       "description": "An AI-assisted deployment pipeline for developers. Push to GitHub, watch every build stage stream live, and get an evidence-based diagnosis the moment something breaks."
@@ -12,10 +8,6 @@
     {
       "repo": "MyPortfolio",
       "description": "An immersive design-engineering portfolio. Fluid scroll inertia, geometric morphing, and typography that bends toward your cursor."
-    },
-    {
-      "repo": "StudySync",
-      "description": "A full-stack academic collaboration platform for study sessions. Real-time discovery, hosting and waitlists, wrapped in an editorial navy-and-teal design system that stays calm under pressure."
     }
   ]
 }
