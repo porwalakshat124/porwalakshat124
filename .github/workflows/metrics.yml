@@ -15,17 +15,50 @@ jobs:
   metrics:
     runs-on: ubuntu-latest
     steps:
+      # Patch two upstream API compatibility bugs without changing profile scripts.
+      - uses: actions/checkout@v4
+        with:
+          repository: lowlighter/metrics
+          ref: 65836723097537a54cd8eb90f61839426b4266b6
+          path: .metrics-action
+          persist-credentials: false
+
+      - name: Apply Metrics compatibility fixes
+        shell: python
+        run: |
+          from pathlib import Path
+          import re
+          root = Path('.metrics-action')
+          p = root / 'source/plugins/habits/index.mjs'
+          s = p.read_text().replace('payload.commits)', '(payload.commits ?? []))')
+          p.write_text(s)
+          # GitHub retired Projects classic. Omit its unavailable Manager badge.
+          p = root / 'source/plugins/achievements/queries/achievements.graphql'
+          s, n = re.subn(r'    projects\(.*?\n    }\n', '', p.read_text(), flags=re.S)
+          assert n == 1
+          p.write_text(s)
+          p = root / 'source/plugins/achievements/list/users.mjs'
+          s, n = re.subn(r'  //Manager\n.*?(?=  //Reviewer)', '', p.read_text(), flags=re.S)
+          assert n == 1
+          p.write_text(s)
+          # Reuse the official image and dependencies with only patched source mounted.
+          p = root / 'action.yml'
+          s = re.sub(r'(?m)^        METRICS_SOURCE=.*$', '        METRICS_SOURCE=lowlighter', p.read_text())
+          s = s.replace('docker run --init --rm ', 'docker run --init --rm --volume "$METRICS_ACTION_PATH/source:/metrics/source:ro" ')
+          p.write_text(s)
+
       # ------------------------------------------------------------------ #
       # The 3D isometric contribution calendar (the one from the inspo)
       # ------------------------------------------------------------------ #
       - name: Isometric contribution calendar
-        uses: lowlighter/metrics@latest
+        uses: ./.metrics-action
         with:
           token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
           committer_token: ${{ secrets.GITHUB_TOKEN }}
           user: ${{ github.repository_owner }}
           filename: assets/metrics.isocalendar.svg
           base: ""
+          plugins_errors_fatal: yes
           config_timezone: Asia/Kolkata
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
@@ -34,13 +67,14 @@ jobs:
       # Coding habits: commits per hour of day, per weekday, language activity
       # ------------------------------------------------------------------ #
       - name: Coding habits
-        uses: lowlighter/metrics@latest
+        uses: ./.metrics-action
         with:
           token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
           committer_token: ${{ secrets.GITHUB_TOKEN }}
           user: ${{ github.repository_owner }}
           filename: assets/metrics.habits.svg
           base: ""
+          plugins_errors_fatal: yes
           config_timezone: Asia/Kolkata
           plugin_habits: yes
           plugin_habits_from: 200
@@ -53,13 +87,14 @@ jobs:
       # Language breakdown (bytes-weighted, recent-activity weighted)
       # ------------------------------------------------------------------ #
       - name: Languages
-        uses: lowlighter/metrics@latest
+        uses: ./.metrics-action
         with:
           token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
           committer_token: ${{ secrets.GITHUB_TOKEN }}
           user: ${{ github.repository_owner }}
           filename: assets/metrics.languages.svg
           base: ""
+          plugins_errors_fatal: yes
           config_timezone: Asia/Kolkata
           plugin_languages: yes
           plugin_languages_details: bytes-size, percentage
@@ -72,13 +107,14 @@ jobs:
       # github-profile-trophy, whose public instance returns 402 (out of quota)
       # ------------------------------------------------------------------ #
       - name: Achievements
-        uses: lowlighter/metrics@latest
+        uses: ./.metrics-action
         with:
           token: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
           committer_token: ${{ secrets.GITHUB_TOKEN }}
           user: ${{ github.repository_owner }}
           filename: assets/metrics.achievements.svg
           base: ""
+          plugins_errors_fatal: yes
           config_timezone: Asia/Kolkata
           plugin_achievements: yes
           plugin_achievements_threshold: C
