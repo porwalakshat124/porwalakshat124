@@ -182,7 +182,7 @@ and I solve problems for fun when neither of those is cooperating.
   </a>
 </td>
 <td width="50%">
-  <a href="#luna-preview">
+  <a href="https://luna-aiagent.vercel.app/">
     <picture>
       <source media="(prefers-color-scheme: dark)"  srcset="assets/card-Luna-dark.svg">
       <source media="(prefers-color-scheme: light)" srcset="assets/card-Luna-light.svg">
@@ -200,7 +200,7 @@ and I solve problems for fun when neither of those is cooperating.
 | **[Nexus](https://github.com/porwalakshat124/nexus-downloads)** | [Windows preview download](https://github.com/porwalakshat124/nexus-downloads/releases/latest) | `C#` `.NET 10` `WPF` |
 | **[DeployPilot](https://github.com/porwalakshat124/deploypilot)** | [deploypilot-web.vercel.app](https://deploypilot-web.vercel.app/) | `CSS` `NextJS` `BullMQ` |
 | **[MyPortfolio](https://github.com/porwalakshat124/MrInfinityboss.github.io)** | [akshat-portfolio-psi.vercel.app](https://akshat-portfolio-psi.vercel.app) | `HTML` `CSS` `JavaScript` |
-| <a id="luna-preview"></a>**Luna** | Releasing soon | `Electron` `Node.js` `SQLite` |
+| **[Luna](https://luna-aiagent.vercel.app/)** | [luna-aiagent.vercel.app](https://luna-aiagent.vercel.app/) | `Electron` `Node.js` `SQLite` |
 
 </sub>
 
