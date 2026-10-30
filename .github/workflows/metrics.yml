@@ -15,7 +15,7 @@ jobs:
   metrics:
     runs-on: ubuntu-latest
     steps:
-      # Patch two upstream API compatibility bugs without changing profile scripts.
+      # Patch upstream API compatibility and token-access issues.
       - uses: actions/checkout@v4
         with:
           repository: lowlighter/metrics
@@ -39,6 +39,16 @@ jobs:
           p.write_text(s)
           p = root / 'source/plugins/achievements/list/users.mjs'
           s, n = re.subn(r'  //Manager\n.*?(?=  //Reviewer)', '', p.read_text(), flags=re.S)
+          assert n == 1
+          p.write_text(s)
+          # Repository integration tokens cannot query user gists.
+          # Omit only the Gister badge instead of failing all achievements.
+          p = root / 'source/plugins/achievements/queries/achievements.graphql'
+          s, n = re.subn(r'    gists\(.*?\n    }\n', '', p.read_text(), flags=re.S)
+          assert n == 1
+          p.write_text(s)
+          p = root / 'source/plugins/achievements/list/users.mjs'
+          s, n = re.subn(r'  //Gister\n.*?(?=  //Worker)', '', p.read_text(), flags=re.S)
           assert n == 1
           p.write_text(s)
           # Reuse the official image and dependencies with only patched source mounted.
