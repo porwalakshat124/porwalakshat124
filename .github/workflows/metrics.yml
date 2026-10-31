@@ -61,6 +61,27 @@ jobs:
           s = p.read_text()
           assert s.count('?.stargazers?.totalCount') == 2
           p.write_text(s.replace('?.stargazers?.totalCount', '?.stargazerCount'))
+          # Compute repository badges from the complete public owner inventory.
+          p = root / 'source/plugins/achievements/queries/achievements.graphql'
+          s = p.read_text()
+          old = 'popular:repositories(first:1, orderBy:'
+          assert s.count(old) == 1
+          p.write_text(s.replace(old, 'popular:repositories(first:1, privacy: PUBLIC, affiliations: OWNER, isFork: false, orderBy:'))
+          p = root / 'source/plugins/achievements/list/users.mjs'
+          s = p.read_text()
+          marker = '  const scores ='
+          assert s.count(marker) == 1
+          s = s.replace(marker, "  // Use a complete, public, owner-scoped inventory rather than token-visible GraphQL repositories.\n  const publicRepositories = []\n  for (let page = 1; ; page++) {\n    const {data: batch} = await rest.repos.listForUser({username: login, type: \"owner\", per_page: 100, page})\n    publicRepositories.push(...batch.filter(repo => !repo.private && repo.owner.login.toLowerCase() === login.toLowerCase()))\n    if (batch.length < 100) break\n  }\n  const originalRepositories = publicRepositories.filter(repo => !repo.fork)\n  const publicLanguages = new Set()\n  for (const repo of originalRepositories) {\n    const {data: languages} = await rest.repos.listLanguages({owner: repo.owner.login, repo: repo.name})\n    for (const name of Object.keys(languages)) publicLanguages.add(name)\n  }\n  user.repositories.totalCount = publicRepositories.length\n  user.forks.totalCount = publicRepositories.filter(repo => repo.fork).length\n  user.popular.nodes = [{stargazerCount: Math.max(0, ...originalRepositories.map(repo => repo.stargazers_count))}]\n" + marker)
+          old = 'data.user.repositories.nodes.map(({forkCount}) => forkCount)'
+          assert s.count(old) == 2
+          s = s.replace(old, 'originalRepositories.map(repo => repo.forks_count)')
+          old = 'new Set(data.user.repositories.nodes.flatMap(repository => repository.languages.edges.map(({node: {name}}) => name))).size'
+          assert s.count(old) == 1
+          s = s.replace(old, 'publicLanguages.size')
+          s = s.replace('Published ${value} public repositor', 'Owns ${value} public repositor')
+          s = s.replace('Using ${value} different programming language${imports.s(value)}', 'Detected ${value} languages across original public repositories')
+          s = s.replace('Maintaining a repository with ${value} star', 'Most-starred original public repository has ${value} star')
+          p.write_text(s)
           # Reuse the official image and dependencies with only patched source mounted.
           p = root / 'action.yml'
           s = re.sub(r'(?m)^        METRICS_SOURCE=.*$', '        METRICS_SOURCE=lowlighter', p.read_text())
